@@ -1,0 +1,245 @@
+<!DOCTYPE html><!-- Last Published: Thu Jan 09 2020 16:35:37 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="poser-73ea5d.webflow.io" data-wf-page="5e14daedb86f1003d78bc6a3"
+  data-wf-site="5e14daedb86f1062aa8bc6a2">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Poserr - Posture Correction Software</title>
+  <meta
+    content="We are are a startup based in Toronto that is looking to help humans become more aware of their posture when working on a computer"
+    name="description" />
+  <meta content="Poserr - Posture Correction Software" property="og:title" />
+  <meta
+    content="We are are a startup based in Toronto that is looking to help humans become more aware of their posture when working on a computer"
+    property="og:description" />
+  <meta
+    content="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e175641fb9c03fe9a16060c_Poserr_PostureCorrection.jpg"
+    property="og:image" />
+  <meta content="summary" name="twitter:card" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link href="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/css/poser-73ea5d.5d1bb13fa.css" rel="stylesheet"
+    type="text/css" />
+  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+  <script
+    type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+  <link href="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e17507da3e1396ccd056fc4_Poserr_Favicon.svg"
+    rel="shortcut icon" type="image/x-icon" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script> 
+  <!-- load ml5.js -->
+  <!-- We use ml5.js because of simple syntax. Simple syntax forever. <3 -->
+  <script src="https://unpkg.com/ml5@0.2.3/dist/ml5.min.js" type="text/javascript"></script>
+  <!-- Our logic is here -->
+  <script src="/posenet.js"></script>
+  <!-- import the webpage's javascript file -->
+  <script src="/script.js" defer></script>
+
+  <link href="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e175080aab905f27e37915d_Poserr_WebClip.svg"
+    rel="apple-touch-icon" />
+</head>
+
+<body class="body">
+  <div>
+    <div data-collapse="none" data-animation="default" data-duration="400" class="navbar w-nav">
+      <div class="container-5 w-container"><a href="#" class="brand w-nav-brand"><img
+            src="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e161ab8080d2dd3f0eb0c50_POSERR.svg"
+            width="100" alt="" class="image-3" /></a>
+        <nav role="navigation" class="w-nav-menu"><a href="mailto:hello@poserr.co?subject=just%20saying%20hi!"
+            class="nav-link w-nav-link">CONTACT</a></nav>
+        <div class="w-nav-button">
+          <div class="w-icon-nav-menu"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container w-container">
+      <div class="div-block">
+        <h1 class="heading">A WHOLE NEW WAY TO BE <br />MINDFUL OF YOUR POSTURE</h1>
+        <div class="text-block">While working on a computer</div>
+        <div class="w-layout-grid grid">
+          <div>
+            <div class="w-form">
+              <form id="email-form" name="email-form" data-name="Email Form" class="form"><input type="text"
+                  class="text-field-2 w-input" autofocus="true" maxlength="256" name="Email" data-name="Email"
+                  placeholder="ELON@TESLA.COM" id="Email" required="" /><input type="submit" value="EMAIL ME THE APP"
+                  data-wait="Please wait..." class="submit-button w-button" /></form>
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columns-2 w-row">
+          <div class="w-col w-col-3"><a href="#" class="link-block w-inline-block">
+              <div class="div-block-8"><img
+                  src="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e160fe11cfa694cb80e214b_Play%20Button.svg"
+                  alt="" />
+                <div class="text-block-2">Watch our video</div>
+              </div>
+            </a></div>
+          <div class="column w-col w-col-3"></div>
+          <div class="column-3 w-col w-col-3"></div>
+          <div class="column-2 w-col w-col-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-3">
+    <div class="container-2 w-container">
+      <div class="background try-it-out">
+        <div class="div-block-3">
+          <h1>GIVE IT A TRY</h1>
+          <div class="text-block-14">This experiment blurs your screen when you keep not correct posture. To try it, you
+            need to allow camera access</div>
+          <div class="text-block-3">
+            <span id="reminderText">PLEASE KEEP GOOD POSTURE BEFORE STARTING FOR BEST RESULTS</span>
+          </div>
+          <div id="startbuttonCont" onmouseover="reminder()" onmouseout="reminderOff()" class="right_align">
+            <button class="button try w-button" onclick="start()" id="startbutton">START</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="container-3 w-container">
+      <div class="div-block-5">
+        <div class="w-layout-grid grid-2">
+          <div id="w-node-6ef8cf822a47-d78bc6a3" class="div-block-4">
+            <div class="w-form">
+              <form id="email-form" name="email-form" data-name="Email Form" class="form"><input type="text"
+                  class="text-field-2 w-input" autofocus="true" maxlength="256" name="name-3" data-name="Name 3"
+                  placeholder="ELON@TESLA.COM" id="name-3" required="" /><input type="submit" value="EMAIL ME THE APP"
+                  data-wait="Please wait..." class="submit-button w-button" /></form>
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-4">
+    <div class="container-2 w-container">
+      <div class="background">
+        <div class="big-card2-text">
+          <div class="w-layout-grid grid-3">
+            <div class="div-block-6">
+              <h3>THE PROBLEM</h3>
+              <div class="text-block-13">Humans are unaware when they are sitting with bad posture while working on a
+                computer.</div>
+            </div>
+            <div class="div-block-6">
+              <h3>IS IT IMPORTANT?</h3>
+              <div class="text-block-12">Poor posture is cause back pain, harder breathe, wear away at spine and other
+                diseases.</div>
+            </div>
+            <div class="div-block-6">
+              <h3>THE SOLUTION</h3>
+              <div class="text-block-10">A web application that allows people to become more conscious of their bad
+                posture and self correct.</div>
+            </div>
+            <div class="div-block-6">
+              <h3>HOW DOES IT WORK</h3>
+              <div class="text-block-11">Grant access to your camera and we monitor your posture and ping you when
+                incorrect.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-5">
+    <div class="container-3 w-container">
+      <div class="div-block-5">
+        <div class="w-layout-grid grid-2">
+          <div id="w-node-a4f59a56f624-d78bc6a3" class="div-block-4">
+            <div class="w-form">
+              <form id="email-form" name="email-form" data-name="Email Form" class="form"><input type="text"
+                  class="text-field-2 w-input" autofocus="true" maxlength="256" name="name-4" data-name="Name 4"
+                  placeholder="ELON@TESLA.COM" id="name-4" required="" /><input type="submit" value="EMAIL ME THE APP"
+                  data-wait="Please wait..." class="submit-button w-button" /></form>
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-2">
+    <div class="container-4 w-container">
+      <div>
+        <div class="w-layout-grid grid-4">
+          <div class="div-block-7">
+            <h4>POSTURE CORRECTOR</h4>
+            <div><strong>$30CAD</strong></div><img
+              src="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616480858b103d33ecabf_Medical-Clavicle-Posture-Corrector-Adult-Children-Back-Support-Belt-Corset-Orthopedic-Brace-Shoulder-Correct_1024x1024_2x_1301ddac-f2cf-489c-aa98-af62f28497fa_480x480%402x.jpg"
+              width="175"
+              srcset="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616480858b103d33ecabf_Medical-Clavicle-Posture-Corrector-Adult-Children-Back-Support-Belt-Corset-Orthopedic-Brace-Shoulder-Correct_1024x1024_2x_1301ddac-f2cf-489c-aa98-af62f28497fa_480x480%402x-p-500.jpeg 500w, https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616480858b103d33ecabf_Medical-Clavicle-Posture-Corrector-Adult-Children-Back-Support-Belt-Corset-Orthopedic-Brace-Shoulder-Correct_1024x1024_2x_1301ddac-f2cf-489c-aa98-af62f28497fa_480x480%402x-p-800.jpeg 800w, https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616480858b103d33ecabf_Medical-Clavicle-Posture-Corrector-Adult-Children-Back-Support-Belt-Corset-Orthopedic-Brace-Shoulder-Correct_1024x1024_2x_1301ddac-f2cf-489c-aa98-af62f28497fa_480x480%402x.jpg 960w"
+              sizes="175px" alt="" class="image-2" />
+            <div class="div-block-9">
+              <div class="text-block-4"><strong>PROS:</strong></div>
+              <div class="text-block-8">- Inexpensive<br />- Easy to use</div>
+              <div class="text-block-9"><strong>CONS:</strong></div>
+              <div class="text-block-7">- Not comfortable<br />- Body relies on product<br />- Doesn’t look good<br />-
+                Old Solution</div>
+            </div><a
+              href="https://www.amazon.ca/Andego-Back-Posture-Corrector-Women/dp/B07F91NB45/ref=sr_1_5?crid=1A9QSU9X0JEYO&amp;keywords=posture+corrector&amp;qid=1578585169&amp;sprefix=posture+c%2Caps%2C153&amp;sr=8-5"
+              target="_blank" class="button comps w-button">CHECK IT OUT</a>
+          </div>
+          <div class="div-block-7 _2">
+            <h4>UPRIGHT GO</h4>
+            <div><strong>$130CAD</strong></div><img
+              src="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616481cfa69d1aa0e56f7_A4WBuzh9580bs14Mvbev.png"
+              width="175"
+              srcset="https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616481cfa69d1aa0e56f7_A4WBuzh9580bs14Mvbev-p-500.png 500w, https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616481cfa69d1aa0e56f7_A4WBuzh9580bs14Mvbev-p-800.png 800w, https://assets.website-files.com/5e14daedb86f1062aa8bc6a2/5e1616481cfa69d1aa0e56f7_A4WBuzh9580bs14Mvbev.png 1000w"
+              sizes="175px" alt="" class="image" />
+            <div class="div-block-9">
+              <div class="text-block-4"><strong>PROS:</strong></div>
+              <div class="text-block-8">- Expensive<br />- App Notifications</div>
+              <div class="text-block-9"><strong>CONS:</strong></div>
+              <div class="text-block-7">- Weak Adhesive<br />- Expensive Adhesive<br />- No GPS<br />- Risk Of Losing
+              </div>
+            </div><a
+              href="https://www.amazon.ca/Upright-GO-Corrector-Strapless-Confidence/dp/B07SRW2D38/ref=sr_1_2?crid=PLSVUIRM5EZB&amp;keywords=upright+go+2+posture+trainer&amp;qid=1578585136&amp;sprefix=upright+go+%2Caps%2C357&amp;sr=8-2"
+              target="_blank" class="button comps w-button">CHECK IT OUT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-6">
+    <div class="w-container">
+      <div class="columns w-row">
+        <div class="column-5 w-col w-col-4"></div>
+        <div class="column-4 w-col w-col-4"></div>
+        <div class="column-6 w-col w-col-4">
+          <div class="div-block-10">
+            <div class="text-block-15">MADE BY:</div><a href="https://www.dylanboychuk.com/" target="_blank"
+              class="button dylan w-button">DYLAN BOYCHUK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="visibility: hidden">
+    <div id="videoContainer">  
+    </div>
+  </div>
+</body>
+
+</html>
