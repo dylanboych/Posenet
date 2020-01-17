@@ -1,2 +1,2 @@
-# Posenet
-Correct your pose and live health life
+# Poserr
+Correct your posture when working on a computer
